@@ -8,7 +8,6 @@ public class AppManager : MonoBehaviour
 
     public void OpenApp(Transform buttonTransform)
     {
-        buttonTransform.GetChild(1).gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(0f, -30.5f, 0f);
         buttonTransform.GetChild(1).gameObject.SetActive(true);
     }
 
