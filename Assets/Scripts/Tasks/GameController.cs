@@ -2,37 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TaskGenerator : MonoBehaviour
+public class GameController : MonoBehaviour
 {
-    private float firstEmailTime = 5f;
+    // For controlling the state of the game,
+    // the time interval between generating tasks,
+    // and increasing the task generation rate over time
+    
+    private float firstEmailDelay = 5f;
 
     private float taskIntervalTimer;
-    private float taskIntervalTimerReset = 30f;
+    private float taskIntervalTimerReset = 20f;
 
     private float increaseRateTimer;
-    private float increaseRateTimerReset = 120f;
+    private float increaseRateTimerReset = 30f;
 
-
-    private enum GameState
+    public enum GameState
     {
         Undefined,
         Onboarding,
         Gameplay
     }
-    
-    [SerializeField] private GameState gameState;
 
-    // Start is called before the first frame update
+    public GameState gameState;
+
     void Start()
     {
         gameState = GameState.Onboarding;
-        StartCoroutine(GiveFirstEmail());
 
         taskIntervalTimer = 0f;
         increaseRateTimer = increaseRateTimerReset;
+
+        StartCoroutine(GiveOnboardingEmail());
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (gameState == GameState.Gameplay)
@@ -48,7 +50,7 @@ public class TaskGenerator : MonoBehaviour
                 Debug.Log("Generating new task.");
 
                 // Reset the task interval timer to the new randomised time
-                taskIntervalTimer = taskIntervalTimerReset + Random.Range(-2f, 2f);
+                taskIntervalTimer = taskIntervalTimerReset + Random.Range(-5f, 5f);
             }
 
             // Task rate increase timer
@@ -61,9 +63,10 @@ public class TaskGenerator : MonoBehaviour
                 // Increase task rate
                 Debug.Log("Increasing task rate.");
                 
-                if (taskIntervalTimerReset >= 12f)
+                if (taskIntervalTimerReset > 6f)
                 {
                     taskIntervalTimerReset -= 2f;
+                    Debug.Log("Task interval timer is: " + taskIntervalTimerReset);
                 }
 
                 // Reset the increase rate timer
@@ -72,9 +75,12 @@ public class TaskGenerator : MonoBehaviour
         }
     }
 
-    private IEnumerator GiveFirstEmail()
+    private IEnumerator GiveOnboardingEmail()
     {
-        yield return new WaitForSecondsRealtime(firstEmailTime);
+        yield return new WaitForSeconds(firstEmailDelay);
 
+        // Generate onboarding email
+        Email email = EmailGenerator.GenerateEmail();
+        Debug.Log("Gave first email.");
     }
 }

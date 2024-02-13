@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7999394865451854142}
   - component: {fileID: 3490758880887853113}
   m_Layer: 5
-  m_Name: NameText
+  m_Name: AppNameText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -537,7 +537,7 @@ GameObject:
   - component: {fileID: 7632302059113889082}
   - component: {fileID: 6639584329498618605}
   m_Layer: 5
-  m_Name: ContentText
+  m_Name: TaskText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -590,7 +590,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Template text
+  m_text: Task text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -691,7 +691,7 @@ GameObject:
   - component: {fileID: 3111820715514819659}
   - component: {fileID: 3073232446212831233}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: TaskTimerText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1255,7 +1255,7 @@ GameObject:
   - component: {fileID: 6063066420144578311}
   - component: {fileID: 8383242467083388451}
   m_Layer: 5
-  m_Name: ReadButton
+  m_Name: SubmitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1742,7 +1742,7 @@ GameObject:
   - component: {fileID: 8717575355117419332}
   - component: {fileID: 6375652731874983231}
   m_Layer: 5
-  m_Name: ReadText
+  m_Name: SubmitText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1876,7 +1876,7 @@ GameObject:
   - component: {fileID: 1921942949108018501}
   - component: {fileID: 58966331949372247}
   m_Layer: 5
-  m_Name: Image
+  m_Name: DropBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
