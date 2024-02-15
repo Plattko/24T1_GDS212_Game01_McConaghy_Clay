@@ -5,9 +5,11 @@ using UnityEngine;
 public class AppManager : MonoBehaviour
 {
     // For managing the opening/closing of apps
+    // Opening of the email app is handled by the EmailManager
 
     public void OpenApp(Transform buttonTransform)
     {
+        buttonTransform.GetChild(1).gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(-300f, 108.5f, 0);
         buttonTransform.GetChild(1).gameObject.SetActive(true);
     }
 

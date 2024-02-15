@@ -15,7 +15,7 @@ public class ButtonListener : MonoBehaviour
 
     private AppManager appManager;
     private Transform buttonTransform;
-    [SerializeField] private Button button;
+    private Button button;
 
     private void Awake()
     {

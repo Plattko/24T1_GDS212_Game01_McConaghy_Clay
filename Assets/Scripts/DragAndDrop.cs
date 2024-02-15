@@ -7,8 +7,8 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IBe
 {
     private Canvas canvas;
     private RectTransform rectTransform;
+    private RectTransform appsRectTransform;
 
-    [SerializeField] private RectTransform appsRectTransform;
     private float leftBound;
     private float rightBound;
 
@@ -16,6 +16,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IBe
     {
         canvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>();
         rectTransform = transform.parent.GetComponent<RectTransform>();
+        appsRectTransform = transform.parent.parent.parent.GetComponent<RectTransform>();
     }
 
     public void OnPointerDown(PointerEventData eventData)
