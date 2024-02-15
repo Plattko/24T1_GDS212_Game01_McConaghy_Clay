@@ -49,6 +49,10 @@ public class Email : MonoBehaviour
         {
             // Check conditions
             Debug.Log("Checking conditions");
+            if (task.IsSubmissionCorrect())
+            {
+
+            }
         }
         else // Is onboarding email
         {
