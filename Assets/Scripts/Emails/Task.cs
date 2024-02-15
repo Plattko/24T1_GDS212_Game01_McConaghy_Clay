@@ -8,8 +8,11 @@ public class Task : MonoBehaviour
 {
     [SerializeField] private GameObject recordPrefab;
     [SerializeField] private GameObject emailSubBoxPrefab;
-    [SerializeField] private TextMeshProUGUI taskTimerText;
-    [SerializeField] private TMP_InputField dropBox;
+    [SerializeField] private GameObject taskTimerPrefab;
+    [SerializeField] private TMP_InputField dropBoxInputField;
+
+    [HideInInspector] public GameObject taskTimer;
+    public TextMeshProUGUI taskTimerText;
 
     [HideInInspector]
     public enum TaskType
@@ -19,9 +22,7 @@ public class Task : MonoBehaviour
     }
 
     [HideInInspector] public TaskType taskType;
-
-    [HideInInspector] public bool isTimerStarted = false;
-    private float taskTime;
+    [HideInInspector] public float taskTime { get; private set; }
 
     // Compare task variables
     public GameObject record { get; private set; }
@@ -120,7 +121,9 @@ public class Task : MonoBehaviour
                 emailSubBox.transform.SetSiblingIndex(1);
 
                 // Set the task time
-                taskTime = UnityEngine.Random.Range(45f, 50f);
+                //taskTime = UnityEngine.Random.Range(45f, 50f);
+                taskTime = 45f;
+                Debug.Log("Task time set.");
 
                 break;
 
@@ -128,24 +131,14 @@ public class Task : MonoBehaviour
                 Debug.LogWarning("Task type not found.");
                 break;
         }
-    }
 
-    private void Update()
-    {
-        if (taskTime > 0f && isTimerStarted) // Must figure out how to run when window is disabled
-        {
-            taskTime -= Time.deltaTime;
-            // Update task timer UI
-        }
-        else if (taskTime <= 0)
-        {
-            // Give player strike and destroy task
-        }
+        taskTimer = Instantiate(taskTimerPrefab);
+        taskTimer.GetComponent<TaskTimer>().Initialise(this);
     }
 
     public bool IsSubmissionCorrect()
     {
-        int number = int.Parse(dropBox.text);
+        int number = int.Parse(dropBoxInputField.text);
         
         if (number == incorrectEntries)
         {
@@ -153,27 +146,4 @@ public class Task : MonoBehaviour
         }
         return false;
     }
-
-    //public Task()
-    //{
-    //    // Pick a random task type
-    //    taskType = (TaskType)Random.Range(0, System.Enum.GetValues(typeof(TaskType)).Length);
-
-    //    switch (taskType)
-    //    {
-    //        case TaskType.Image:
-    //            taskTime = Random.Range(25f, 30f);
-
-    //            break;
-
-    //        case TaskType.Compare:
-    //            taskTime = Random.Range(45f, 50f);
-
-    //            break;
-
-    //        default:
-    //            Debug.LogWarning("Task type not found.");
-    //            break;
-    //    }
-    //}
 }

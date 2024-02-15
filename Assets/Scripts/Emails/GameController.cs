@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -8,9 +9,11 @@ public class GameController : MonoBehaviour
     // the time interval between generating tasks,
     // and increasing the task generation rate over time
 
+    [SerializeField] private Plattko.SceneController sceneController;
     [SerializeField] private EmailGenerator emailGenerator;
     
     private float firstEmailDelay = 5f;
+    private float gameOverDelay = 5f;
 
     private float taskIntervalTimer;
     private float taskIntervalTimerReset = 20f;
@@ -27,7 +30,12 @@ public class GameController : MonoBehaviour
 
     public GameState gameState;
 
-    void Start()
+    private void Awake()
+    {
+        TaskCounter.taskCounter = 0;
+    }
+
+    private void Start()
     {
         gameState = GameState.Onboarding;
 
@@ -37,7 +45,7 @@ public class GameController : MonoBehaviour
         StartCoroutine(GiveOnboardingEmail());
     }
 
-    void Update()
+    private void Update()
     {
         if (gameState == GameState.Gameplay)
         {
@@ -85,5 +93,12 @@ public class GameController : MonoBehaviour
         // Generate onboarding email
         emailGenerator.GenerateEmail();
         Debug.Log("Gave first email.");
+    }
+
+    public IEnumerator GameOver()
+    {
+        yield return new WaitForSeconds(gameOverDelay);
+        // Load lose scene
+        sceneController.LoadScene(2);
     }
 }

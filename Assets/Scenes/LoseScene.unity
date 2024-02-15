@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 69460683}
   - component: {fileID: 69460685}
   - component: {fileID: 69460684}
+  - component: {fileID: 69460686}
   m_Layer: 5
   m_Name: TasksCompletedText
   m_TagString: Untagged
@@ -257,6 +258,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69460682}
   m_CullTransparentMesh: 1
+--- !u!114 &69460686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69460682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4f847a2547f1b040a06b9184e96b476, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &106771041
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -964,12 +977,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 106771042}
         m_TargetAssemblyTypeName: Plattko.SceneController, Assembly-CSharp
-        m_MethodName: ReloadScene
-        m_Mode: 1
+        m_MethodName: LoadScene
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1391,7 +1404,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.15107687, g: 0.60584927, b: 0.9150943, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0

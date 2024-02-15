@@ -52,7 +52,7 @@ public class EmailGenerator : MonoBehaviour
             emailManager.AddEmailToQueue(taskEmail);
 
             // Start task timer
-            task.isTimerStarted = true;
+            task.taskTimer.GetComponent<TaskTimer>().isTimerStarted = true;
         }
     }
 }
