@@ -5,6 +5,8 @@ using TMPro;
 
 public class EmailNotification : MonoBehaviour
 {
+    // For updating the email notification image and number
+    
     private GameObject notification;
     private TextMeshProUGUI notificationText;
     
@@ -28,7 +30,7 @@ public class EmailNotification : MonoBehaviour
         }
     }
 
-    private void AddNotification()
+    public void AddNotification()
     {
         notificationNumber++;
         notificationText.text = notificationNumber.ToString();
@@ -39,7 +41,7 @@ public class EmailNotification : MonoBehaviour
         }
     }
 
-    private void RemoveNotification()
+    public void RemoveNotification()
     {
         if (notificationNumber > 0)
         {

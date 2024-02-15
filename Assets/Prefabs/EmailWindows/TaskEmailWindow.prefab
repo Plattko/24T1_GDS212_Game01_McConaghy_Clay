@@ -171,7 +171,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 130.22}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &6781265355957761461
 MonoBehaviour:
@@ -316,13 +316,15 @@ GameObject:
   - component: {fileID: 486062512425730834}
   - component: {fileID: 2403777407453486300}
   - component: {fileID: 768752415628421099}
+  - component: {fileID: 244953018729842963}
+  - component: {fileID: 5499730634456112716}
   m_Layer: 5
-  m_Name: EmailWindow
+  m_Name: TaskEmailWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1859162979377321652
 RectTransform:
   m_ObjectHideFlags: 0
@@ -416,6 +418,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc69a08bee4f18949b8ed12fd6ab7af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &244953018729842963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2829659222834138983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0907e488e70445e4dafff4e6b87fa5fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emailText: {fileID: 7632302059113889082}
+--- !u!114 &5499730634456112716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2829659222834138983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5df6ab5ebe143814598b3a333b009597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taskTimerText: {fileID: 3073232446212831233}
+  taskType: 0
+  isTimerStarted: 0
 --- !u!1 &3162876799331699828
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,10 +587,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 8078278844310508318}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 278, y: -20.11}
+  m_SizeDelta: {x: 556, y: 40.22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3626159512369670180
 CanvasRenderer:
@@ -844,15 +874,15 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3083555164684995638}
-  - {fileID: 2308379317465884202}
   - {fileID: 6830414788382131696}
+  - {fileID: 2308379317465884202}
+  - {fileID: 3083555164684995638}
   m_Father: {fileID: 8078278844310508318}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 278, y: -90.22}
+  m_SizeDelta: {x: 556, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7812209834798919292
 CanvasRenderer:
@@ -945,7 +975,7 @@ RectTransform:
   m_Father: {fileID: 2217444241446330463}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1078,7 +1108,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7779d67511ec6d4b829abd3eb17afad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  appsRectTransform: {fileID: 0}
 --- !u!114 &5533096922534756456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1362,7 +1391,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6063066420144578311}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 244953018729842963}
+        m_TargetAssemblyTypeName: Email, Assembly-CSharp
+        m_MethodName: SubmitTask
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6941558897327850663
 GameObject:
   m_ObjectHideFlags: 0

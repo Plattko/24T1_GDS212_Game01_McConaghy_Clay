@@ -7,6 +7,8 @@ public class GameController : MonoBehaviour
     // For controlling the state of the game,
     // the time interval between generating tasks,
     // and increasing the task generation rate over time
+
+    [SerializeField] private EmailGenerator emailGenerator;
     
     private float firstEmailDelay = 5f;
 
@@ -47,7 +49,7 @@ public class GameController : MonoBehaviour
             else
             {
                 // Generate new task
-                Debug.Log("Generating new task.");
+                emailGenerator.GenerateEmail();
 
                 // Reset the task interval timer to the new randomised time
                 taskIntervalTimer = taskIntervalTimerReset + Random.Range(-5f, 5f);
@@ -75,12 +77,13 @@ public class GameController : MonoBehaviour
         }
     }
 
+    // Give the player their first email
     private IEnumerator GiveOnboardingEmail()
     {
         yield return new WaitForSeconds(firstEmailDelay);
 
         // Generate onboarding email
-        Email email = EmailGenerator.GenerateEmail();
+        emailGenerator.GenerateEmail();
         Debug.Log("Gave first email.");
     }
 }

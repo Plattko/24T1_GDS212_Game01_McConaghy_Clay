@@ -5,6 +5,7 @@ using UnityEngine;
 public class AppManager : MonoBehaviour
 {
     // For managing the opening/closing of apps
+    // Opening of the email app is handled by the EmailManager
 
     public void OpenApp(Transform buttonTransform)
     {
