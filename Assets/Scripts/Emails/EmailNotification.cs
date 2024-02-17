@@ -18,17 +18,17 @@ public class EmailNotification : MonoBehaviour
         notificationText = notification.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            AddNotification();
-        }
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            RemoveNotification();
-        }
-    }
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.G))
+    //    {
+    //        AddNotification();
+    //    }
+    //    if (Input.GetKeyDown(KeyCode.H))
+    //    {
+    //        RemoveNotification();
+    //    }
+    //}
 
     public void AddNotification()
     {

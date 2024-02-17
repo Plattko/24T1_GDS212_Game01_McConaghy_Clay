@@ -39,13 +39,13 @@ public class CompareDoc : MonoBehaviour
         //SetCompareDoc(GenerateCompareDocCode());
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            GenerateCompareDocCode();
-        }
-    }
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.J))
+    //    {
+    //        GenerateCompareDocCode();
+    //    }
+    //}
 
     public String GenerateCompareDocCode()
     {
